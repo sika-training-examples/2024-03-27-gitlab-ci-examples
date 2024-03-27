@@ -19,3 +19,4 @@ stop:
   environment:
     name: $CI_COMMIT_REF_SLUG
     action: stop
+

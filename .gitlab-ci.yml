@@ -1,7 +1,4 @@
-image: alpine
-
-before_script:
-  - apk add curl
+image: sikalabs/ci
 
 job1:
   script: curl -IL seznam.cz

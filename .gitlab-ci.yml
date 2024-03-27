@@ -8,4 +8,4 @@ build:
   rules:
     - if: $CI_PIPELINE_SOURCE == "schedule"
       when: never
-    - if: $CI_BRANCH_NAME
+    - if: $CI_BRANCH

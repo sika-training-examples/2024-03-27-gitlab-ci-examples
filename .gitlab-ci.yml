@@ -1,11 +1,10 @@
 image: alpine
 
 before_script:
-  - apk update
-  - apk add cowsay
+  - apk add curl
 
 job1:
-  script: /usr/game/cowsay hello
+  script: curl -IL seznam.cz
 
 job2:
-  script: /usr/game/cowsay world
+  script: curl -IL google.com

@@ -1,19 +1,59 @@
+# .gitlab-ci.yml
+
 stages:
   - build
   - test
+  - deploy
 
-pre:
-  stage: .pre
-  script: echo Pre ...
-
-build:
+linux build:
   stage: build
-  script: echo Build!
+  script: sleep 10 && echo Done
 
-test:
+mac build:
+  stage: build
+  script: sleep 30 && echo Done
+
+lint:
   stage: test
-  script: echo Test!
+  # needs: []
+  script: echo Done
 
-post:
-  stage: .post
-  script: echo Post ...
+linux unit tests:
+  stage: test
+  needs:
+    - linux build
+  script: echo Done
+
+linux e2e tests:
+  stage: test
+  # needs:
+  #   - linux build
+  script: sleep 10 && echo Done
+
+mac unit tests:
+  stage: test
+  # needs:
+  #   - mac build
+  script: sleep 5 && echo Done
+
+mac e2e tests:
+  stage: test
+  # needs:
+  #   - mac build
+  script: sleep 30 && echo Done
+
+release linux:
+  stage: deploy
+  script: "echo Done"
+  # needs:
+  #   - lint
+  #   - linux unit tests
+  #   - linux e2e tests
+
+release mac:
+  stage: deploy
+  script: "echo Done"
+  # needs:
+  #   - lint
+  #   - mac unit tests
+  #   - mac e2e tests

@@ -1,9 +1,8 @@
 # .gitlab-ci.yml
 test:
-  # image: ondrejsika/pytest
-  image: python:3-slim
+  image: ondrejsika/pytest
+  # image: python:3-slim
   script:
-    - pip3 install pytest
     - pytest --junitxml=report.xml
   artifacts:
     reports:

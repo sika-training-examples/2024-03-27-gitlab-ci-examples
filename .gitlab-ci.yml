@@ -6,6 +6,7 @@ deploy:
   stage: deploy
   script: echo Run deploy ... && false
   when: manual
+  allow_failure: false
 
 
 test-deploy:

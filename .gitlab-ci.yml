@@ -3,5 +3,5 @@ hello-world:
 
 hostname:
   tags:
-    - linux
+    - linux2
   script: cat /etc/hostname && false

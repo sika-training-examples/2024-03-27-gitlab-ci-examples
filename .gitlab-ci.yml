@@ -1,2 +1,2 @@
 hello world:
-  script: echo Hello World!
+  script: cat /etc/hostname

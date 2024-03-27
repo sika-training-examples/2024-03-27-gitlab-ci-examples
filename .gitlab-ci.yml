@@ -1,7 +1,13 @@
-hello-world:
-  script: echo "Hello World!"
+job1:
+  script: echo Hello World!
 
-hostname:
-  tags:
-    - linux2
-  script: cat /etc/hostname
+job2:
+  script:
+    - echo Hello World!
+    - echo Ahoj Svete!
+
+job3:
+  script: |
+    echo Hello World!
+    echo Ahoj Svete!
+    

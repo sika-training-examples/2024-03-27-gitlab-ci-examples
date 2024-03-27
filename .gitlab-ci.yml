@@ -1,26 +1,6 @@
-stages:
-  - deploy dev
-  - deploy prod
+include:
+  - project: 'era/gitlab-ci-library'
+    file: '/go-cli.gitlab-ci.yml'
 
-.dev:
-  stage: deploy dev
-  variables:
-    ENV: dev
-
-.prod:
-  stage: deploy prod
-  variables:
-    ENV: prod
-
-.deploy:
-  script: echo Deploy $ENV
-
-deploy dev:
-  extends:
-    - .deploy
-    - .dev
-
-deploy prod:
-  extends:
-    - .deploy
-    - .prod
+variables:
+  PROJECT_NAME: hello-era

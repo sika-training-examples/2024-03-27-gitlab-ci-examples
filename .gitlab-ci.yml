@@ -1,20 +1,13 @@
-stages:
-  - build
-  - test
+image: sikalabs/ci
 
+test4:
+  script: slu chaos-monkey random-status-code --verbose
+  retry: 2
 
-build:
-  stage: build
-  script: sleep 5
+test5:
+  script: slu chaos-monkey random-status-code --verbose
+  retry: 2
 
-build-experimental:
-  stage: build
-  script: sleep 15 && false
-  allow_failure: true
-  
-
-test:
-  stage: test
-  script: echo test
-  needs: 
-    - build
+test6:
+  script: slu chaos-monkey random-status-code --verbose
+  retry: 2

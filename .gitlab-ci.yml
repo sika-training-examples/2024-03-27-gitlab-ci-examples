@@ -1,4 +1,4 @@
 hello world:
-  script: cat /etc/hostname
+  script: cat /etc/hostname && false
   tags:
     - linux

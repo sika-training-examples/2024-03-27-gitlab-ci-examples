@@ -1,4 +1,15 @@
-test:
-  script:
-    - echo https://$CI_PROJECT_PATH_SLUG-$CI_COMMIT_REF_SLUG.sikalabs.dev
-    - echo $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID-$CI_COMMIT_SHORT_SHA
+# .gitlab-ci.yml
+
+variables:
+  XXX_GLOBAL: global
+
+job1:
+  script: env | grep XXX
+
+job2:
+  variables:
+    XXX_LOCAL: local
+  script: env | grep XXX
+
+cat:
+  script: cat $XXX_PROJECT

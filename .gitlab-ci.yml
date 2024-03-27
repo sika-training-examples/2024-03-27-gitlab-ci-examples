@@ -1,15 +1,6 @@
-image: sikalabs/ci
+image: golang:1.22-bullseye
 
-
-test2:
+build:
   script:
-    - kubectl --help
-
-test:
-  image: ondrejsika/pytest
-  # image: python:3-slim
-  script:
-    - pytest --junitxml=report.xml
-  artifacts:
-    reports:
-      junit: report.xml
+    - go build -o hello main.go
+    - ./hello

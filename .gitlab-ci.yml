@@ -1,4 +1,5 @@
-# .gitlab-ci.yml
+image: sikalabs/ci
+
 test:
   image: ondrejsika/pytest
   # image: python:3-slim

@@ -1,17 +1,12 @@
-# .gitlab-ci.yml
+workflow:
+  auto_cancel:
+    on_new_commit: interruptible
 
-Build Frontend:
-  script: echo Build Frontend ...
-  rules:
-    - changes:
-        paths:
-          - frontend/**
-        compare_to: 'refs/heads/main'
+job1:
+  interruptible: true
+  script: sleep 60
 
-Build Backend:
-  script: echo Build Backend ...
-  rules:
-    - changes:
-        paths:
-          - backend/**
-        compare_to: 'refs/heads/main'
+job2:
+  interruptible: false  # Default when not defined.
+  script: sleep 60
+  

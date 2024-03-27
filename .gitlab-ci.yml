@@ -5,7 +5,7 @@ stages:
 
 generate:
   stage: generate
-  image: python:3.7-slim
+  image: python:3.7-slim-buster
   script: python generate-gitlab-ci.py
   artifacts:
     paths:

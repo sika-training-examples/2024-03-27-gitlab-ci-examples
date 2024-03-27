@@ -1,15 +1,5 @@
 # .gitlab-ci.yml
 
-variables:
-  XXX_GLOBAL: global
-
-job1:
-  script: env | grep XXX
-
-job2:
-  variables:
-    XXX_LOCAL: local
-  script: env | grep XXX
-
-cat:
-  script: cat $XXX_PROJECT
+job:
+  echo $XXX_TOKEN_DEV | base64
+  echo $XXX_TOKEN_PROD | base64

@@ -1,7 +1,12 @@
-image: sikalabs/ci
-
 job1:
-  script: curl -IL seznam.cz
+  script:
+    - echo deploy!
+    - echo test!
+    - echo cleanup!
 
 job2:
-  script: curl -IL google.com
+  script:
+    - echo deploy!
+    - echo test!
+  after_script:
+    - echo cleanup!

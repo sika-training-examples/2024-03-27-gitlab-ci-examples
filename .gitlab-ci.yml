@@ -1,6 +1,13 @@
 # .gitlab-ci.yml
 
-job:
+push:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
   script:
-  - echo $XXX_TOKEN_DEV | base64
-  - echo $XXX_TOKEN_PROD | base64
+    - echo push
+
+run:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+  script:
+    - echo run

@@ -2,7 +2,8 @@ job:
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
-      - now
+      - *.class
+      - .go-build-cache
   script:
     - date >> now
     - cat now

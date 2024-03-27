@@ -7,6 +7,5 @@ job1:
   script: sleep 60
 
 job2:
-  interruptible: false  # Default when not defined.
+  interruptible: true
   script: sleep 60
-  

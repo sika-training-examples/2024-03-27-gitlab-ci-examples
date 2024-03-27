@@ -2,4 +2,4 @@ image: sikalabs/ci
 
 test4:
   script: slu chaos-monkey random-status-code --verbose
-  retry: 10
+  retry: 2

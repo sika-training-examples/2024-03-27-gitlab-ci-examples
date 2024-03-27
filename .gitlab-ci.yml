@@ -1,11 +1,8 @@
-workflow:
-  auto_cancel:
-    on_new_commit: interruptible
-
-job1:
-  interruptible: true
-  script: sleep 60
-
-job2:
-  interruptible: true
-  script: sleep 60
+job:
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - now
+  script:
+    - date >> now
+    - cat now

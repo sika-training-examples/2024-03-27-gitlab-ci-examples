@@ -1,5 +1,10 @@
 image: sikalabs/ci
 
+
+test2:
+  script:
+    - kubectl --help
+
 test:
   image: ondrejsika/pytest
   # image: python:3-slim

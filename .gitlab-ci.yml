@@ -1,2 +1,7 @@
-hello world:
+hello-world:
+  script: echo "Hello World!"
+
+hostname:
+  tags:
+    - linux
   script: cat /etc/hostname && false

@@ -1,11 +1,11 @@
-include:
-  - project: 'era/gitlab-ci-library'
-    file: '/go-cli.gitlab-ci.yml'
+# .gitlab-ci.yml
 
-variables:
-  PROJECT_NAME: hello-era
+pipeline_a:
+  trigger:
+    include: a/.gitlab-ci.yml
+    strategy: depend
 
-test:
-  stage: .post
-  script:
-    - ./hello-era-linux-amd64
+pipeline_b:
+  trigger:
+    include: b/.gitlab-ci.yml
+    strategy: depend

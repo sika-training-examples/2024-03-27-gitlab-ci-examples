@@ -3,15 +3,15 @@ stages:
   - b
   - c
 
-  a:
-    stage: a
-    script: "false"
-  
-  b:
-    stage: b
-    script: "true"
-  
-  c:
-    stage: c
-    when: on_failure
-    script: echo hello
+a:
+  stage: a
+  script: "false"
+
+b:
+  stage: b
+  script: "true"
+
+c:
+  stage: c
+  when: on_failure
+  script: echo hello

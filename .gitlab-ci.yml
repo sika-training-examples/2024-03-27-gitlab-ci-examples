@@ -1,12 +1,17 @@
-job1:
-  script:
-    - echo deploy!
-    - echo test! && false
-    - echo cleanup!
+stages:
+  - a
+  - b
+  - c
 
-job2:
-  script:
-    - echo deploy!
-    - echo test! && false
-  after_script:
-    - echo cleanup!
+  a:
+    stage: a
+    script: "false"
+  
+  b:
+    stage: b
+    script: "true"
+  
+  c:
+    stage: c
+    when: on_failure
+    script: echo hello

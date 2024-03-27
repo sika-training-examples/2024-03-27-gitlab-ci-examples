@@ -4,10 +4,14 @@ Build Frontend:
   script: echo Build Frontend ...
   rules:
     - changes:
-        - frontend/**
+        paths:
+          - frontend/**
+        compare_to: 'refs/heads/main'
 
 Build Backend:
   script: echo Build Backend ...
   rules:
     - changes:
-        - backend/**
+        paths:
+          - backend/**
+        compare_to: 'refs/heads/main'

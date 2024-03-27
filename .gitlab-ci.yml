@@ -1,4 +1,13 @@
+stages:
+  - deploy
+  - test-deploy
+
 deploy:
-  stage: test
+  stage: deploy
   script: echo Run deploy ...
   when: manual
+
+
+test-deploy:
+  stage: test-deploy
+  script: echo Run deploy ...

@@ -1,15 +1,24 @@
-stages:
-  - build
-  - test
+job1:
+  script: sleep 10
 
-build:
-  stage: build
-  script: echo Build!
+job2:
+  script: sleep 10
 
-test1:
-  stage: test
-  script: echo Test1!
+job3:
+  script: sleep 10
 
-test2:
-  stage: test
-  script: echo Test2!
+job4:
+  script: sleep 10
+
+job5:
+  script: sleep 10
+
+job6:
+  script: sleep 10
+
+job7:
+  script: sleep 10
+
+job8:
+  script: sleep 10
+

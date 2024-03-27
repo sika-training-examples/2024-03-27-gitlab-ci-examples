@@ -1,6 +1,7 @@
 image: alpine
 
 before_script:
+  - apk update
   - apk add cowsay
 
 job1:

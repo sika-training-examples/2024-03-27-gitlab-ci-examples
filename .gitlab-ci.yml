@@ -1,17 +1,10 @@
-stages:
-  - build
-  - test
-
-build:
-  stage: build
-  script:
-    - mkdir -p out
-    - echo '<h1>Hello World!</h1>' > out/index.html
-  artifacts:
-    paths:
-      - out
-
+# .gitlab-ci.yml
 test:
-  stage: test
+  # image: ondrejsika/pytest
+  image: pyhon:3-slim
   script:
-    - cat out/index.html
+    - pip3 install pytest
+    - pytest --junitxml=report.xml
+  artifacts:
+    reports:
+      junit: report.xml

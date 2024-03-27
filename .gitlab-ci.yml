@@ -1,5 +1,6 @@
 # .gitlab-ci.yml
 
 job:
-  echo $XXX_TOKEN_DEV | base64
-  echo $XXX_TOKEN_PROD | base64
+  script:
+  - echo $XXX_TOKEN_DEV | base64
+  - echo $XXX_TOKEN_PROD | base64

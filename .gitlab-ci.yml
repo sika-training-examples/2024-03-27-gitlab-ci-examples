@@ -1,14 +1,18 @@
 stages:
-  - deploy
-  - test-deploy
-
-deploy:
-  stage: deploy
-  script: echo Run deploy ...
-  when: manual
-  allow_failure: false
+  - build
+  - test
 
 
-test-deploy:
-  stage: test-deploy
-  script: echo Run deploy ...
+build:
+  stage: build
+  script: sleep 5
+
+build-experimental:
+  stage: build
+  script: sleep 15
+  allow_failure: true
+  
+
+test:
+  stage: test
+  script: echo test

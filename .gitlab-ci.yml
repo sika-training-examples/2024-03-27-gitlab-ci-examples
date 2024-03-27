@@ -9,10 +9,12 @@ build:
 
 build-experimental:
   stage: build
-  script: sleep 15
+  script: sleep 15 && false
   allow_failure: true
   
 
 test:
   stage: test
   script: echo test
+  needs: 
+    - build

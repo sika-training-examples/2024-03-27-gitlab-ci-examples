@@ -1,20 +1,18 @@
-default:
-  image: docker:24.0.5
-  services:
-    - docker:24.0.5-dind
-  before_script:
-    - docker info
-
 variables:
-  DOCKER_TLS_CERTDIR: "/certs"
-
+  GIT_CLEAN_FLAGS: -ffdx -e .kaniko-cache
   TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID
-  IMAGE: $CI_REGISTRY_IMAGE:$TAG
+  IMAGE: $CI_REGISTRY_IMAGE/kaniko:$TAG
 
-build:
-  stage: build
+job:
+  image:
+    name: gcr.io/kaniko-project/executor:v1.19.2-debug
+    entrypoint: [""]
   script:
-    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
-    - docker build -t $IMAGE .
-    - docker run $IMAGE
-    - docker push $IMAGE
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor
+      --context .
+      --dockerfile ./Dockerfile
+      --destination $IMAGE
+      --cache=true
+      --cache-dir .kaniko-cache
+      --cache-repo $CI_REGISTRY_IMAGE/cache

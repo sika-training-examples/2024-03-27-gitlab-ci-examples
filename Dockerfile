@@ -1,9 +1,19 @@
-FROM golang:1.21 as build
-WORKDIR /build
-COPY . .
-RUN CGO_ENABLED=0 GOARCH=arm64 go build -o hello main.go
+# .gitlab-ci.yml
 
-FROM debian:12-slim
-WORKDIR /app
-COPY --from=build /build/hello .
-CMD ["./hello"]
+image: golang:1.22-bullseye
+
+build:
+  parallel:
+    matrix:
+      - GOOS:
+          - linux
+          - darwin
+          - windows
+        GOARCH:
+          - amd64
+          - arm64
+  artifacts:
+    paths:
+      - hello-${GOOS}-${GOARCH}
+  script:
+    - go build -o hello-${GOOS}-${GOARCH} main.go

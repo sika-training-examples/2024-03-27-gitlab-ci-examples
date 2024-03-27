@@ -1,17 +1,4 @@
-stages:
-  - a
-  - b
-  - c
-
-a:
-  stage: a
-  script: "false"
-
-b:
-  stage: b
-  script: "true"
-
-c:
-  stage: c
-  when: on_failure
-  script: echo hello
+deploy:
+  stage: test
+  script: echo Run deploy ...
+  when: manual

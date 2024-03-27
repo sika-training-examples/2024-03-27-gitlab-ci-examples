@@ -4,3 +4,8 @@ include:
 
 variables:
   PROJECT_NAME: hello-era
+
+test:
+  stage: .post
+  script:
+    - ./hello-era-linux-amd64

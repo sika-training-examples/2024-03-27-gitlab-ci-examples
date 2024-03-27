@@ -1,13 +1,15 @@
-job1:
-  script: echo Hello World!
+stages:
+  - build
+  - test
 
-job2:
-  script:
-    - echo Hello World!
-    - echo Ahoj Svete!
+build:
+  stage: build
+  script: echo Build!
 
-job3:
-  script: |
-    echo Hello World!
-    echo Ahoj Svete!
-    
+test1:
+  stage: test
+  script: echo Test1!
+
+test2:
+  stage: test
+  script: echo Test2!

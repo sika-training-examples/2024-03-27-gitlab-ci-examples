@@ -5,9 +5,3 @@ nightly:
 
 build:
   script: echo build ...
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "schedule"
-      when: never
- 
-
- 
